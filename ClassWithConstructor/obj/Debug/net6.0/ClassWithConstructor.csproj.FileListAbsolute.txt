@@ -1,0 +1,15 @@
+C:\Users\Mileydi\Desktop\Patika\ClassWithConstructor\bin\Debug\net6.0\ClassWithConstructor.exe
+C:\Users\Mileydi\Desktop\Patika\ClassWithConstructor\bin\Debug\net6.0\ClassWithConstructor.deps.json
+C:\Users\Mileydi\Desktop\Patika\ClassWithConstructor\bin\Debug\net6.0\ClassWithConstructor.runtimeconfig.json
+C:\Users\Mileydi\Desktop\Patika\ClassWithConstructor\bin\Debug\net6.0\ClassWithConstructor.dll
+C:\Users\Mileydi\Desktop\Patika\ClassWithConstructor\bin\Debug\net6.0\ClassWithConstructor.pdb
+C:\Users\Mileydi\Desktop\Patika\ClassWithConstructor\obj\Debug\net6.0\ClassWithConstructor.csproj.AssemblyReference.cache
+C:\Users\Mileydi\Desktop\Patika\ClassWithConstructor\obj\Debug\net6.0\ClassWithConstructor.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Mileydi\Desktop\Patika\ClassWithConstructor\obj\Debug\net6.0\ClassWithConstructor.AssemblyInfoInputs.cache
+C:\Users\Mileydi\Desktop\Patika\ClassWithConstructor\obj\Debug\net6.0\ClassWithConstructor.AssemblyInfo.cs
+C:\Users\Mileydi\Desktop\Patika\ClassWithConstructor\obj\Debug\net6.0\ClassWithConstructor.csproj.CoreCompileInputs.cache
+C:\Users\Mileydi\Desktop\Patika\ClassWithConstructor\obj\Debug\net6.0\ClassWithConstructor.dll
+C:\Users\Mileydi\Desktop\Patika\ClassWithConstructor\obj\Debug\net6.0\refint\ClassWithConstructor.dll
+C:\Users\Mileydi\Desktop\Patika\ClassWithConstructor\obj\Debug\net6.0\ClassWithConstructor.pdb
+C:\Users\Mileydi\Desktop\Patika\ClassWithConstructor\obj\Debug\net6.0\ClassWithConstructor.genruntimeconfig.cache
+C:\Users\Mileydi\Desktop\Patika\ClassWithConstructor\obj\Debug\net6.0\ref\ClassWithConstructor.dll
