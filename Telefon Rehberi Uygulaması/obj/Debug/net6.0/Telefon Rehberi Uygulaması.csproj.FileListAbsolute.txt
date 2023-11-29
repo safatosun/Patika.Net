@@ -1,0 +1,15 @@
+C:\Users\Mileydi\Desktop\Patika\Telefon Rehberi Uygulaması\bin\Debug\net6.0\Telefon Rehberi Uygulaması.exe
+C:\Users\Mileydi\Desktop\Patika\Telefon Rehberi Uygulaması\bin\Debug\net6.0\Telefon Rehberi Uygulaması.deps.json
+C:\Users\Mileydi\Desktop\Patika\Telefon Rehberi Uygulaması\bin\Debug\net6.0\Telefon Rehberi Uygulaması.runtimeconfig.json
+C:\Users\Mileydi\Desktop\Patika\Telefon Rehberi Uygulaması\bin\Debug\net6.0\Telefon Rehberi Uygulaması.dll
+C:\Users\Mileydi\Desktop\Patika\Telefon Rehberi Uygulaması\bin\Debug\net6.0\Telefon Rehberi Uygulaması.pdb
+C:\Users\Mileydi\Desktop\Patika\Telefon Rehberi Uygulaması\obj\Debug\net6.0\Telefon Rehberi Uygulaması.csproj.AssemblyReference.cache
+C:\Users\Mileydi\Desktop\Patika\Telefon Rehberi Uygulaması\obj\Debug\net6.0\Telefon Rehberi Uygulaması.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Mileydi\Desktop\Patika\Telefon Rehberi Uygulaması\obj\Debug\net6.0\Telefon Rehberi Uygulaması.AssemblyInfoInputs.cache
+C:\Users\Mileydi\Desktop\Patika\Telefon Rehberi Uygulaması\obj\Debug\net6.0\Telefon Rehberi Uygulaması.AssemblyInfo.cs
+C:\Users\Mileydi\Desktop\Patika\Telefon Rehberi Uygulaması\obj\Debug\net6.0\Telefon Rehberi Uygulaması.csproj.CoreCompileInputs.cache
+C:\Users\Mileydi\Desktop\Patika\Telefon Rehberi Uygulaması\obj\Debug\net6.0\Telefon Rehberi Uygulaması.dll
+C:\Users\Mileydi\Desktop\Patika\Telefon Rehberi Uygulaması\obj\Debug\net6.0\refint\Telefon Rehberi Uygulaması.dll
+C:\Users\Mileydi\Desktop\Patika\Telefon Rehberi Uygulaması\obj\Debug\net6.0\Telefon Rehberi Uygulaması.pdb
+C:\Users\Mileydi\Desktop\Patika\Telefon Rehberi Uygulaması\obj\Debug\net6.0\Telefon Rehberi Uygulaması.genruntimeconfig.cache
+C:\Users\Mileydi\Desktop\Patika\Telefon Rehberi Uygulaması\obj\Debug\net6.0\ref\Telefon Rehberi Uygulaması.dll
