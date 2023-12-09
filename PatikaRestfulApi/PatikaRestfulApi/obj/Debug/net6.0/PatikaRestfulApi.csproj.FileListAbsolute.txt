@@ -29,3 +29,11 @@ C:\Users\Mileydi\Desktop\AspNetCoreWebApi\PatikaRestfulApi\PatikaRestfulApi\bin\
 C:\Users\Mileydi\Desktop\AspNetCoreWebApi\PatikaRestfulApi\PatikaRestfulApi\bin\Debug\net6.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 C:\Users\Mileydi\Desktop\AspNetCoreWebApi\PatikaRestfulApi\PatikaRestfulApi\bin\Debug\net6.0\Newtonsoft.Json.dll
 C:\Users\Mileydi\Desktop\AspNetCoreWebApi\PatikaRestfulApi\PatikaRestfulApi\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll
+C:\Users\Mileydi\Desktop\AspNetCoreWebApi\PatikaRestfulApi\PatikaRestfulApi\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\Mileydi\Desktop\AspNetCoreWebApi\PatikaRestfulApi\PatikaRestfulApi\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\Mileydi\Desktop\AspNetCoreWebApi\PatikaRestfulApi\PatikaRestfulApi\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.InMemory.dll
+C:\Users\Mileydi\Desktop\AspNetCoreWebApi\PatikaRestfulApi\PatikaRestfulApi\obj\Debug\net6.0\staticwebassets\msbuild.PatikaRestfulApi.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\Mileydi\Desktop\AspNetCoreWebApi\PatikaRestfulApi\PatikaRestfulApi\obj\Debug\net6.0\staticwebassets\msbuild.build.PatikaRestfulApi.props
+C:\Users\Mileydi\Desktop\AspNetCoreWebApi\PatikaRestfulApi\PatikaRestfulApi\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.PatikaRestfulApi.props
+C:\Users\Mileydi\Desktop\AspNetCoreWebApi\PatikaRestfulApi\PatikaRestfulApi\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.PatikaRestfulApi.props
+C:\Users\Mileydi\Desktop\AspNetCoreWebApi\PatikaRestfulApi\PatikaRestfulApi\obj\Debug\net6.0\staticwebassets.pack.json

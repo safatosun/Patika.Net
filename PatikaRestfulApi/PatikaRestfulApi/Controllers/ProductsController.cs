@@ -1,134 +1,100 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
+using PatikaRestfulApi.Controllers.Attributes;
+using PatikaRestfulApi.Entities.DataTransferObject;
 using PatikaRestfulApi.Entities.Models;
+using PatikaRestfulApi.Repositories.Contracts;
+using PatikaRestfulApi.Repositories.EFCore;
+using PatikaRestfulApi.Services.Contracts;
 using System.Globalization;
 
 namespace PatikaRestfulApi.Controllers
 {
-    [Route("api/products")]
     [ApiController]
-    public class ProductsController : ControllerBase
+    [Route("api/products")]    
+    public class ProductController : ControllerBase
     {
 
-        private static List<Product> _products = new List<Product>
+        private readonly IProductService _productService;
+
+        public ProductController(IProductService productService)
         {
-            new Product { Id = 1, Name = "Bilgisayar", Price = 2000 },
-            new Product { Id = 2, Name = "Televizyon", Price = 1000 },
-            new Product { Id = 3, Name = "Tablet", Price = 400 },
-        };
+            _productService = productService;
+        }
+
+        [HttpGet("Login")]
+        [ServiceFilter(typeof(FakeUserAttribute))]
+        public IActionResult Login([FromQuery] string name, [FromQuery] string password)
+        {
+            
+            return Ok("Giriş başarılı!");
+        }
 
         [HttpGet]
-        public IActionResult GetAllProducts()
+        public IActionResult GetAll()
         {
-            return Ok(_products);
+            var entities = _productService.GetAll();
+            return Ok(entities);
         }
 
         [HttpGet("{id:int}")]
-        public IActionResult GetOneProductById([FromRoute(Name = "id")] int id)
+        public IActionResult GetById([FromRoute(Name = "id")] int id)
         {
-            var product = _products.FirstOrDefault(p => p.Id == id);
+            var entity = _productService.GetById(id);
 
-            if (product == null)
-                return NotFound();
-
-            return Ok(product);
+            return Ok(entity);
         }
 
         [HttpGet("list")]
-        public IActionResult GetAllProductsByName([FromQuery] string name)
+        public IActionResult GetByName([FromQuery] string name)
         {
-            var Products = _products.Where(p => p.Name.Contains(name, StringComparison.OrdinalIgnoreCase)).OrderBy(p => p.Name);
-
-            if (string.IsNullOrEmpty(name))
-            {
-                return BadRequest();
-            }
-
-            return Ok(Products);    
+            var entities = _productService.GetByName(name);
+            return Ok(entities);
         }
 
         [HttpPost]
-        public IActionResult CreateOneProduct([FromBody] Product product)
+        public IActionResult Create([FromBody] BookDtoForInsertion product)
         {
-            if (product is null)
-                return BadRequest();
-
+           
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            _products.Add(product);
+            var entity = _productService.Create(product);
 
-            return StatusCode(201, product);
+            return CreatedAtAction(nameof(GetById), new { id = entity.Id }, entity);
 
         }
 
         [HttpPut("{id:int}")]
-        public IActionResult UpdateOneProduct([FromRoute(Name = "id")] int id, [FromBody] Product product)
-        {
-            if(id != product.Id)
-            {
-                return BadRequest();
-            }
-
-            var Product = _products.FirstOrDefault(p => p.Id == id);
-
-            if (Product == null)
-            {
-                return NotFound(); 
-            }
-
+        public IActionResult Update([FromRoute(Name = "id")] int id, [FromBody] BookDtoForUpdate product)
+        {             
+           
             if (!ModelState.IsValid)
             {
-                return BadRequest(ModelState); 
+                return BadRequest(ModelState);
             }
 
-            Product.Name = product.Name;
-            Product.Price = product.Price;
-
-            return NoContent(); 
+            _productService.Update(id,product); 
+            return Ok();
         }
 
         [HttpDelete("{id:int}")]
-        public IActionResult DeleteOneProduct([FromRoute(Name = "id")] int id)
+        public IActionResult Delete([FromRoute(Name = "id")] int id)
         {
-            var product = _products.FirstOrDefault(p => p.Id == id);
-
-            if (product == null)
-            {
-                return NotFound();  
-            }
-
-            _products.Remove(product);
-
+            _productService.Delete(id);
             return NoContent();  
         }
 
         [HttpPatch("{id:int}")]
-        public IActionResult Patch([FromRoute(Name = "id")] int id, [FromBody] JsonPatchDocument<Product> productPatch)
+        public IActionResult Patch([FromRoute(Name = "id")] int id, [FromBody] JsonPatchDocument<BookDtoForUpdate> patchDoc)
         {
-            var product = _products.FirstOrDefault(p => p.Id == id);
-           
-            if (product == null)
-            {
-                return NotFound(); 
-            }
-
-            productPatch.ApplyTo(product, ModelState);
-            
-            TryValidateModel(product);
-
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState); 
-            }
-
-            return NoContent(); 
+            _productService.Patch(id, patchDoc);
+            return Ok();
         }
-
-       
-
+        
     }
+
 }
