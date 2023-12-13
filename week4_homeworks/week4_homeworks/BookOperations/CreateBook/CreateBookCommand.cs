@@ -1,45 +1,45 @@
+using AutoMapper;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using WebApi.Common;
-using WebApi.DBOperations;
-using week4_homeworks;
+using week4_homeworks.DBOperations;
 
-namespace WebApi.BookOperations.CreateBook
+namespace week4_homeworks.BookOperations.CreateBook
 {
     public class CreateBookCommand
     {
         public CreateBookModel Model {get; set;}
+
         private readonly BookStoreDbContext dbContext;
-        public CreateBookCommand(BookStoreDbContext _dbContext)
+        private readonly IMapper _mapper;
+
+        public CreateBookCommand(BookStoreDbContext _dbContext, IMapper mapper)
         {
-            dbContext=_dbContext;
+            dbContext = _dbContext;
+            _mapper = mapper;
         }
-        
+
         public void Handle()
         {
             var book =  dbContext.Books.SingleOrDefault(x=> x.Title == Model.Title);
 
             if (book is not null)
             {
-                throw new InvalidOperationException("Kitap zaten mevcut");
+                throw new InvalidOperationException("The book already exists");
             }
-            book = new Book();
-            book.Title=Model.Title;
-            book.PublishDate=Model.PublishDate;
-            book.PageCount=Model.PageCount;
-            book.GenreId=Model.GenreId;
+            book = _mapper.Map<Book>(Model);
+            
             
             dbContext.Books.Add(book);
             dbContext.SaveChanges();
         }
+    }
 
-        public class CreateBookModel
-        {
-            public string Title { get; set; }
-            public int GenreId { get; set; }
-            public int PageCount { get; set; }
-            public DateTime PublishDate { get; set; }
-        }
+    public class CreateBookModel
+    {
+        public string Title { get; set; }
+        public int GenreId { get; set; }
+        public int PageCount { get; set; }
+        public DateTime PublishDate { get; set; }
     }
 }

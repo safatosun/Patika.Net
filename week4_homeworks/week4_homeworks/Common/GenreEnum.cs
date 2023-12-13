@@ -1,4 +1,4 @@
-namespace WebApi.Common
+namespace week4_homeworks.Common
 {
     public enum GenreEnum
     {

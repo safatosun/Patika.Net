@@ -1,10 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "3tlKLPYkIuanMdQ1Ytq3GXaxAoe7HrpzzegdSCuq79x94jJa+N00aKZBNAwf8Pm6qLKQlC6K+uQakbG99f37EA==",
+  "dgSpecHash": "w1W2i8GyTL6tIPapAc5f+QknYaUM9d3NN2MpYGznnSuzPGjV2CQE/qmw4F+LGhT0SFD94d3DHE/9rdNcEVigpw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Mileydi\\Desktop\\AspNetCoreWebApi\\week4_homeworks\\week4_homeworks\\week4_homeworks.csproj",
+  "projectFilePath": "C:\\Users\\Mileydi\\Desktop\\Genel\\Patika\\week4_homeworks\\week4_homeworks\\week4_homeworks.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Mileydi\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
+    "C:\\Users\\Mileydi\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
+    "C:\\Users\\Mileydi\\.nuget\\packages\\fluentvalidation\\11.8.1\\fluentvalidation.11.8.1.nupkg.sha512",
     "C:\\Users\\Mileydi\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
+    "C:\\Users\\Mileydi\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\Mileydi\\.nuget\\packages\\microsoft.entityframeworkcore\\6.0.0\\microsoft.entityframeworkcore.6.0.0.nupkg.sha512",
     "C:\\Users\\Mileydi\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\6.0.0\\microsoft.entityframeworkcore.abstractions.6.0.0.nupkg.sha512",
     "C:\\Users\\Mileydi\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\6.0.0\\microsoft.entityframeworkcore.analyzers.6.0.0.nupkg.sha512",

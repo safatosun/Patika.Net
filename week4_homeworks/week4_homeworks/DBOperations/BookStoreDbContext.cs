@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using week4_homeworks;
 
-namespace WebApi.DBOperations
+namespace week4_homeworks.DBOperations
 {
     public class BookStoreDbContext : DbContext
     {

@@ -1,45 +1,45 @@
+using AutoMapper;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using WebApi.Common;
-using WebApi.DBOperations;
+using week4_homeworks.Common;
+using week4_homeworks.DBOperations;
 
-namespace WebApi.BookOperations.GetByIdQuery
+namespace week4_homeworks.BookOperations.GetById
 {
     public class GetByIdQuery
     {
+        private readonly IMapper _mapper;
         public int BookId {get; set;}
         private readonly BookStoreDbContext _dbContext;
-        public GetByIdQuery(BookStoreDbContext dbContext,int id)
+
+        public GetByIdQuery(BookStoreDbContext dbContext, IMapper mapper)
         {
-            BookId=id;
-            _dbContext=dbContext;
+            _dbContext = dbContext;
+            _mapper = mapper;
         }
 
-        public BooksViewModel Handle(){
+        public BookViewModel Handle(){
+            
             var book =  _dbContext.Books.Where(x => x.Id == BookId).SingleOrDefault();
-             if (book is null)
+             
+            if (book is null)
              {
-                  throw new InvalidOperationException("Kitap bulunamadı");
+                  throw new InvalidOperationException("Book not found.");
              }
 
-
-            BooksViewModel Model = new BooksViewModel();
-
-            Model.Title = book.Title;
-            Model.PageCount=book.PageCount;
-            Model.PublishDate=book.PublishDate;
-            Model.Genre=((GenreEnum)book.GenreId).ToString();
+            BookViewModel Model = _mapper.Map<BookViewModel>(book); 
 
             return Model;
         }
     }
 
-    public class BooksViewModel
+    public class BookViewModel
     {
         public string Title { get; set; }
-        public int PageCount { get; set; }
-        public DateTime PublishDate { get; set; }
         public string Genre { get; set; }
+        public int PageCount { get; set; }
+        public string PublishDate { get; set; }
+        
     }
 }

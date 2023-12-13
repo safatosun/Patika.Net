@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Mileydi\\Desktop\\AspNetCoreWebApi\\week4_homeworks\\week4_homeworks\\week4_homeworks.csproj": {}
+    "C:\\Users\\Mileydi\\Desktop\\Genel\\Patika\\week4_homeworks\\week4_homeworks\\week4_homeworks.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Mileydi\\Desktop\\AspNetCoreWebApi\\week4_homeworks\\week4_homeworks\\week4_homeworks.csproj": {
+    "C:\\Users\\Mileydi\\Desktop\\Genel\\Patika\\week4_homeworks\\week4_homeworks\\week4_homeworks.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Mileydi\\Desktop\\AspNetCoreWebApi\\week4_homeworks\\week4_homeworks\\week4_homeworks.csproj",
+        "projectUniqueName": "C:\\Users\\Mileydi\\Desktop\\Genel\\Patika\\week4_homeworks\\week4_homeworks\\week4_homeworks.csproj",
         "projectName": "week4_homeworks",
-        "projectPath": "C:\\Users\\Mileydi\\Desktop\\AspNetCoreWebApi\\week4_homeworks\\week4_homeworks\\week4_homeworks.csproj",
+        "projectPath": "C:\\Users\\Mileydi\\Desktop\\Genel\\Patika\\week4_homeworks\\week4_homeworks\\week4_homeworks.csproj",
         "packagesPath": "C:\\Users\\Mileydi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Mileydi\\Desktop\\AspNetCoreWebApi\\week4_homeworks\\week4_homeworks\\obj\\",
+        "outputPath": "C:\\Users\\Mileydi\\Desktop\\Genel\\Patika\\week4_homeworks\\week4_homeworks\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Mileydi\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -40,6 +40,14 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[12.0.1, )"
+            },
+            "FluentValidation": {
+              "target": "Package",
+              "version": "[11.8.1, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[6.0.0, )"

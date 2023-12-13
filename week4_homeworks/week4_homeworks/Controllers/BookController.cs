@@ -1,33 +1,35 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
+using AutoMapper;
+using FluentValidation;
+using FluentValidation.Results;
 using Microsoft.AspNetCore.Mvc;
-using WebApi.BookOperations.CreateBook;
-using WebApi.BookOperations.GetBooks;
-using WebApi.BookOperations.GetByIdQuery;
-using WebApi.BookOperations.PutBookCommand;
-using WebApi.DBOperations;
-using static WebApi.BookOperations.CreateBook.CreateBookCommand;
-using static WebApi.BookOperations.PutBookCommand.PutBookCommand;
+using week4_homeworks.BookOperations.CreateBook;
+using week4_homeworks.BookOperations.DeleteBook;
+using week4_homeworks.BookOperations.GetBooks;
+using week4_homeworks.BookOperations.GetById;
+using week4_homeworks.BookOperations.UpdateBook;
+using week4_homeworks.DBOperations;
 
-namespace WebApi.AddControllers
+
+namespace week4_homeworks.Controllers
 {
     [ApiController]
-    [Route("[controller]s")]
+    [Route("books")]
     public class BookController:ControllerBase
     {
         private readonly BookStoreDbContext _context;
+        private readonly IMapper _mapper;
 
-        public BookController (BookStoreDbContext context)
-        { 
+        public BookController(BookStoreDbContext context, IMapper mapper)
+        {
             _context = context;
+            _mapper = mapper;
         }
-        
- 
+
+
         [HttpGet]
         public IActionResult GetBooks()
         {
-            GetBooksQuery query = new GetBooksQuery(_context);
+            GetBooksQuery query = new GetBooksQuery(_context, _mapper);
             var result = query.Handle();
             return Ok(result);
         }   
@@ -35,20 +37,37 @@ namespace WebApi.AddControllers
         [HttpGet("{id}")]
         public IActionResult GetById(int id)
         {
-            BookOperations.GetByIdQuery.BooksViewModel result;
-            GetByIdQuery query = new GetByIdQuery(_context,id);
-            result=query.Handle();
-            return Ok(result);
-        }  
+            BookViewModel result;
 
- 
+            try
+            {
+                GetByIdQuery query = new GetByIdQuery(_context,_mapper);
+                query.BookId = id;
+                GetByIdQueryValidator validator = new GetByIdQueryValidator();
+                validator.ValidateAndThrow(query);
+
+                result = query.Handle();
+
+            }
+            catch(Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+
+            return Ok(result);
+        }
+
+
         [HttpPost]
         public IActionResult AddBook([FromBody] CreateBookModel model)
         {
-            CreateBookCommand command = new CreateBookCommand(_context);
+            CreateBookCommand command = new CreateBookCommand(_context,_mapper);
             try
             {
                 command.Model=model;
+                CreateBookCommandValidator validator = new CreateBookCommandValidator();
+                validator.ValidateAndThrow(command);
+
                 command.Handle();
             }
             catch (Exception ex)
@@ -60,13 +79,17 @@ namespace WebApi.AddControllers
 
  
         [HttpPut("{id}")]
-        public IActionResult UpdateBook(int id,[FromBody] PutCommandModel updatedBook)
-        {
-            PutBookCommand command = new PutBookCommand(_context);
+        public IActionResult UpdateBook(int id,[FromBody] UpdateBookModel updatedBook)
+        {           
             try
             {
+                UpdateBookCommand command = new UpdateBookCommand(_context);
+                command.BookId = id;
                 command.Model=updatedBook;
-                command.Handle(id);
+                UpdateBookCommandValidator validator = new UpdateBookCommandValidator();
+                validator.ValidateAndThrow(command);
+
+                command.Handle();
             }
             catch (Exception ex)
             {
@@ -79,13 +102,18 @@ namespace WebApi.AddControllers
         [HttpDelete("{id}")]
         public IActionResult DeleteBook(int id)
         {
-            var book =  _context.Books.SingleOrDefault(x => x.Id == id);
-            if (book is null)
+            try
             {
-                return BadRequest();
+                DeleteBookCommand command = new DeleteBookCommand(_context);
+                DeleteBookCommandValidator validator = new DeleteBookCommandValidator();
+                command.BookId=id;
+                validator.ValidateAndThrow(command);
+                command.Handle();
+                
+            }catch(Exception ex)
+            {
+                return BadRequest(ex.Message);
             }
-             _context.Books.Remove(book);
-             _context.SaveChanges();
             return Ok();
         }
     }
