@@ -1,19 +1,8 @@
-SELECT title, length
-FROM film
-WHERE title LIKE '%n'
-ORDER BY length DESC
-LIMIT 5;
-
-
-SELECT title, length
-FROM film
-WHERE title LIKE '%n'
-ORDER BY length ASC
-OFFSET 5
-LIMIT 5;
-
-SELECT last_name, store_id
-FROM customer
-WHERE store_id = 1
-ORDER BY last_name DESC
-LIMIT 4;
+SELECT DISTINCT replacement_cost FROM film;
+SELECT COUNT(DISTINCT replacement_cost) FROM film;
+SELECT COUNT(*) FROM film
+WHERE title LIKE 'T%' AND rating = 'G';
+SELECT COUNT(*) FROM country
+WHERE country LIKE '_____';
+SELECT COUNT(*) FROM city
+WHERE city ILIKE '%R';
