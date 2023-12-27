@@ -1,25 +1,26 @@
 using AutoMapper;
 using FluentValidation;
-using FluentValidation.Results;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using week4_homeworks.BookOperations.CreateBook;
-using week4_homeworks.BookOperations.DeleteBook;
-using week4_homeworks.BookOperations.GetBooks;
-using week4_homeworks.BookOperations.GetById;
-using week4_homeworks.BookOperations.UpdateBook;
+using week4_homeworks.Applications.BookOperations.Commands.CreateBook;
+using week4_homeworks.Applications.BookOperations.Commands.DeleteBook;
+using week4_homeworks.Applications.BookOperations.Commands.UpdateBook;
+using week4_homeworks.Applications.BookOperations.Queries.GetBooks;
+using week4_homeworks.Applications.BookOperations.Queries.GetById;
 using week4_homeworks.DBOperations;
 
 
 namespace week4_homeworks.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("books")]
     public class BookController:ControllerBase
     {
-        private readonly BookStoreDbContext _context;
+        private readonly IBookStoreDbContext _context;
         private readonly IMapper _mapper;
 
-        public BookController(BookStoreDbContext context, IMapper mapper)
+        public BookController(IBookStoreDbContext context, IMapper mapper)
         {
             _context = context;
             _mapper = mapper;
