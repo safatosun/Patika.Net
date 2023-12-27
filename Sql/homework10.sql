@@ -1,23 +1,11 @@
-SELECT first_name FROM actor
-UNION
-SELECT first_name FROM customer;
+SELECT country, city.city FROM city
+LEFT JOIN country ON  city.country_id = country.country_id
+ORDER BY country, city.city;
 
-SELECT first_name FROM actor
-INTERSECT
-SELECT first_name FROM customer;
+SELECT payment.payment_id, first_name, last_name FROM customer
+RIGHT JOIN payment ON  payment.customer_id = customer.customer_id
+ORDER BY payment.payment_id, first_name, last_name;
 
-SELECT first_name FROM actor
-EXCEPT
-SELECT first_name FROM customer;
-
-SELECT first_name FROM actor
-UNION ALL
-SELECT first_name FROM customer;
-
-SELECT first_name FROM actor
-INTERSECT ALL
-SELECT first_name FROM customer;
-
-SELECT first_name FROM actor
-EXCEPT ALL
-SELECT first_name FROM customer;
+SELECT rental.rental_id, first_name, last_name FROM customer
+FULL JOIN rental ON  rental.customer_id = customer.customer_id
+ORDER BY rental.rental_id, first_name, last_name;
